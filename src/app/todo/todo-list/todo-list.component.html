@@ -1,0 +1,44 @@
+<div class="row" *ngIf="!editMode">
+  <div class="col-md-12">
+    <ui-list-form></ui-list-form>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">{{ componentTitle }} ({{ totalToDo }})</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ componentSubTitle }}</h6>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush" *ngIf="todoLists; else emptyList" >
+              <li class="list-group-item" *ngFor="let item of todoLists;">
+                <div class="row">
+                  <div class="col-md-9 click"  (click)="onToDoDetails(item.id)">
+                    <strong> {{ item.name  | capitalizeFirst }}  </strong>
+                  </div>
+                  <div class="col-md-3">
+                    <button class="btn btn-light mr-2"  (click)="onEditList(item.id)">
+                      <i class="fa fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-light" (click)="onDeleteList(item.id)">
+                      <i class="fa fa-trash"></i> Delete
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ng-template #emptyList>
+              <div class="row">
+                <div class="col-md-12 mt-3 text-muted">
+                  <h6> {{ emptyMessage }} </h6>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div class="card-footer">
+          </div>
+      </div>
+  </div>
+</div>

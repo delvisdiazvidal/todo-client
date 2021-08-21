@@ -1,0 +1,14 @@
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #cd0c1d;
+    font-weight: bold;
+}
+
+.card-link{
+    cursor: pointer;
+}
+
+.click {
+    cursor: pointer;
+}

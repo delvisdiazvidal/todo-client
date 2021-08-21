@@ -1,0 +1,22 @@
+<div class="row" *ngIf="toDoItem">
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <button type="button" class="close" aria-label="Close" (click)="onDismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5><strong> {{ toDoItem.name }} </strong></h5>
+          <h6 class="card-subtitle mb-2 text-muted"> {{ componentSubTitle }} </h6>
+        </div>
+        <div class="card-body" >
+          <ui-item-form [itemForm]="updItemForm"></ui-item-form>
+        </div>
+        <div class="card-footer">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger mr-3" (click)="onCancel()"> <i class="fa fa-close"></i> Cancel</button>
+            <button class="btn btn-success" (click)="onSubmit()" [disabled]="inValidForm"> <i class="fa fa-check"></i> Ok</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

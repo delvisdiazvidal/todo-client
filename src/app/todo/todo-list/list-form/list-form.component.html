@@ -1,0 +1,22 @@
+<form [formGroup]="listForm">
+  <div class="row" >
+  <div class="col-md-12" >
+    <div class="form-group">
+      <div class="input-group">
+          <input type="text"
+                  id="listName"
+                  formControlName="listName"
+                  class="form-control"
+                  max="20"
+                  placeholder="ToDo List Name">
+        <button class="btn btn-light" type="button" id="listName" (click)="onCancel()"><i class="fa fa-close"></i> Cancel</button>
+        <button class="btn btn-light" type="button" id="listName" (click)="onSubmit()" [disabled]="inValid"><i class="fa fa-save"></i> Save</button>
+      </div>
+      <small *ngIf="listName.invalid && listName.touched">
+          <small class="text-danger" *ngIf="listName.errors.required">{{errors.required}}<br></small>
+          <small class="text-danger" *ngIf="listName.errors.maxlength">{{errors.maxLength}}<br></small>
+      </small>
+    </div>
+    </div>
+  </div>
+</form>

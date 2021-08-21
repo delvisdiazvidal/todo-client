@@ -1,0 +1,47 @@
+<div *ngIf="toDoListItem" class="row">
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-8">
+              <h5><strong> {{ componentTitle }} {{ toDoListItem.name  | capitalizeFirst }} ({{ totalListItem }})</strong></h5>
+              <h6 class="card-subtitle mb-2 text-muted"> {{ componentSubTitle }} </h6>
+            </div>
+            <div class="col-md-4">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-danger" (click)="onNewToDoItem()"><i class="fa fa-plus"></i> New</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" >
+            <div *ngIf="isNotItemsEmpty; else noItems">
+              <div class="card mb-2" *ngFor="let item of toDoListItem.toDoItems;">
+                <div class="card-body row">
+                  <div class="col-md-9 click" [ngClass]="{ 'line-through': isComplete(item.status) }" (click)="onChangeItem(item)">
+                    <h6> <strong> {{ item.name | capitalizeFirst  }}  </strong> ( {{ item.description  | capitalizeFirst }} )</h6>
+                  </div>
+                  <div class="col-md-3">
+                    <button class="btn btn-light mr-2" [disabled]="isInValid(item.status)" (click)="onEditItem(item.id)">
+                      <i class="fa fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-light" (click)="onDeleteItem(item)">
+                      <i class="fa fa-trash"></i> Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noItems>
+              <div class="row">
+                <div class="col-md-12 mt-3 text-muted">
+                  <h6> {{ emptyMessage }} </h6>
+                </div>
+              </div>
+            </ng-template>
+        </div>
+        <div class="card-footer">
+        </div>
+      </div>
+  </div>
+</div>
