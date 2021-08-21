@@ -1,21 +1,13 @@
 {
-  "name": "piab-frontend",
-  "version": "1.2.2",
-  "description": "Registro Industrial de Alimentos y Bebidas",
+  "name": "todo-frontend",
+  "version": "0.0.1",
+  "description": "ToDo",
   "author": {
     "name": "@delvisdiazvidal",
     "email": "delvis.diaz@alimatic.cu"
   },
   "license": "MIT",
-  "keywords": [
-    "Solicitud",
-    "Licencias",
-    "Bebidas",
-    "Alimentos",
-    "MINAL",
-    "ONIE",
-    "ALIMATIC"
-  ],
+  "keywords": [],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
